@@ -1,0 +1,40 @@
+<select [(ngModel)]="selectedId" >
+    <option value="0">All</option>
+    <option *ngFor="let cat of categories" [value]="cat.ID">{{cat.catName}}</option>
+</select>
+<input type="text" name="" id="" #clientinp>
+
+<!-- <h3>{{selectedId}}</h3>
+
+<h2>{{totalOrderPrice}}</h2> -->
+<!-- هبعت التوتال من البرودكت هنا  -->
+<app-productlist-component (ontotakPriceChanged)="calcOrderPrice($event)" [sentCatId]="selectedId" (inserToOrder)="addTocart($event)" ></app-productlist-component>
+
+<table class="table border">
+    <tr>   
+        <th>id</th>
+        <th>name</th>
+        <th>quan</th>
+        <th>price</th>
+        <th>img</th>
+        <th>catId</th>
+        <th>needed Quan</th>
+        <th>Buy</th></tr>
+
+        <tr *ngFor="let cart of CartsProducts ">
+            <th>{{cart.ID}}</th>
+        <th>{{cart.name}}</th>
+        <th>{{cart.quantity}}</th>
+        <th>{{cart.price}}</th>
+        <th>{{cart.img}}</th>
+        <th>{{cart.CateogryID}}</th>
+        <th>{{cart.neededQuan}}</th>
+        <th>{{cart.totalPrice}}</th>
+        <th><button class="btn bg-danger text-dark" (click)="deleteFromCart(cart.ID)">delete</button></th></tr>
+
+        
+</table>
+
+
+
+

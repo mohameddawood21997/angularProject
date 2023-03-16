@@ -1,0 +1,33 @@
+  <button (click)="saveProduct()">click</button>
+  <!-- {{product.name}} -->
+<form (ngSubmit)="saveProduct()">
+    <div class="mb-3">
+      <label  class="form-label">name</label>
+      <input [(ngModel)]="product.name" type="name" name="productName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+     
+    </div>
+    <div class="mb-3">
+      <label  class="form-label">quantity</label>
+      <input [(ngModel)]="product.quantity" type="number"  name="productQuan"   class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label  class="form-label">price</label>
+        <input  [(ngModel)]="product.price" type="number"  name="productPrice"  class="form-control" id="exampleInputPassword1">
+      </div>
+      <div class="mb-3">
+        <label  class="form-label">image</label>
+        <input [(ngModel)]="product.imgURL" type="file"  name="productFile"  class="form-control" id="exampleInputPassword1">
+      </div>
+      <div class="mb-3">
+        <label  class="form-label">categories</label>
+        <select [(ngModel)]="product.cateogryId"  name="productCat"  class="form-select" >
+          <option [value]="cat._id" *ngFor="let cat of categories">{{cat.name}}</option>
+        </select>
+      </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>

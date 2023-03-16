@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="card m-3" style="width: 18rem;">
+        <img [src]="product?.imgURL" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{product?.name}}</h5>
+          <p class="card-text">{{product?.price|currency:'EUR'}}</p>
+          <a  class="btn btn-primary" (click)="goBack()">Go Back</a>
+        </div>
+      </div>
+</div>
+<div class="row mt-5">
+  <form  (ngSubmit)="updateProduct()">
+    <div class="mb-3">
+      <label  class="form-label">name</label>
+      <input [(ngModel)]="product.name" type="name" name="productName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    
+     
+    </div>
+    <div class="mb-3">
+      <label  class="form-label">quantity</label>
+      <input [(ngModel)]="product.quantity" type="number"  name="productQuan"   class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label  class="form-label">price</label>
+        <input  [(ngModel)]="product.price" type="number"  name="productPrice"  class="form-control" id="exampleInputPassword1">
+      </div>
+      <div class="mb-3">
+        <label  class="form-label">image</label>
+        <input [(ngModel)]="product.imgURL" type="file"  name="productFile"  class="form-control" id="exampleInputPassword1">
+      </div>
+      <div class="mb-3">
+        <label  class="form-label">categories</label>
+        <select [(ngModel)]="product.cateogryId"  name="productCat"  class="form-select" >
+          <option [value]="cat._id" *ngFor="let cat of categories">{{cat.name}}</option>
+        </select>
+      </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">update</button>
+  </form>
+</div>
